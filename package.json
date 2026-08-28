@@ -1,0 +1,21 @@
+{
+  "name": "ahnaf-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal portfolio for Md. Ahnaf Muttaqi Chowdhury - static site, HTML + Tailwind, Cloudflare Pages.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:css": "tailwindcss -i src/tailwind.css -o dist/styles.css --minify",
+    "dev": "tailwindcss -i src/tailwind.css -o dist/styles.css --watch",
+    "serve": "python3 -m http.server 8000 --directory dist",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "simple-icons": "^13.21.0",
+    "tailwindcss": "3.4.17"
+  }
+}

@@ -1,0 +1,5 @@
+# Cloudflare Pages project config.
+# Lets `npx wrangler pages deploy` work with no extra flags after `npm run build`.
+name = "ahnaf-portfolio"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "dist"
