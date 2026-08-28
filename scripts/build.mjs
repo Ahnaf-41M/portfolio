@@ -1,4 +1,4 @@
-// Build step for Cloudflare Pages (and local `npm run build`).
+// Build the site into dist/ (run by `npm run build` and the CI workflow).
 //  1. wipe dist/
 //  2. copy static/ verbatim
 //  3. inject brand-icon <symbol>s (from simple-icons) into the sprite placeholder

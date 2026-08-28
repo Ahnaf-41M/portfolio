@@ -26,7 +26,7 @@ export default {
           'Arial',
           'sans-serif',
         ],
-        // Loaded from Google Fonts in <head> (see index.html + _headers CSP).
+        // Loaded from Google Fonts in <head>.
         display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: [
           '"JetBrains Mono"',

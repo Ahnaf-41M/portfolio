@@ -8,7 +8,7 @@ hamburger menu below that.
 Technology icons are real brand marks (Ruby, Rails, Docker, Ansible, Postgres, Prometheus, …) pulled
 from the `simple-icons` package **at build time** and inlined into an SVG `<symbol>` sprite — no icon
 font, no runtime request. Headings use Space Grotesk + JetBrains Mono from Google Fonts (the only
-third-party request; see the CSP note below); body text stays on the system stack.
+third-party request); body text stays on the system stack.
 
 ## Stack: plain HTML + Tailwind (compiled)
 
@@ -16,8 +16,7 @@ Picked over Jekyll and Bridgetown because:
 
 - **It's one page.** A content pipeline (Jekyll/Bridgetown) earns its keep when you have a blog or
   many pages. Here it would be pure overhead.
-- **Cloudflare Pages builds it with just Node**, in a few seconds. Jekyll/Bridgetown on Pages means
-  pinning and babysitting a Ruby toolchain in CI — a known friction point for a site this small.
+- **The build is just Node** — a few seconds in CI, no Ruby toolchain to pin and babysit.
 - **Fewer dependencies is the point.** `tailwindcss` and `simple-icons` are both build-time only —
   nothing ships to the browser except HTML + one CSS file. You keep full control of the markup.
 - **Tailwind is compiled ahead of time** (Tailwind CLI, not the Play CDN), so there's no
@@ -28,7 +27,7 @@ already write Ruby, and the copy and design here port over cleanly. Say the word
 
 ## Prerequisites
 
-- Node 18+ (`.node-version` pins 20 for Cloudflare)
+- Node 18+ (`.node-version` pins 20; the CI workflow reads it)
 - `python3` only if you use `npm run serve` for local preview (any static server works)
 
 ## Local development
@@ -62,39 +61,6 @@ To add or remove a technology icon: edit the `BRANDS` map in `scripts/build.mjs`
 `#b-<id>` used in markup, values are the `simple-icons` export suffix), then reference
 `<svg viewBox="0 0 24 24" fill="currentColor"><use href="#b-<id>" /></svg>` in `index.html`.
 
-## Deploy to Cloudflare Pages
-
-### Option A — Git integration (recommended)
-
-1. Push this repo to GitHub/GitLab.
-2. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → pick the repo.
-3. Build settings:
-   | Field | Value |
-   |---|---|
-   | Framework preset | None |
-   | Build command | `npm run build` |
-   | Build output directory | `dist` |
-   | Node version | picked up from `.node-version` (20); or set env var `NODE_VERSION=20` |
-4. **Save and Deploy.** Every push to the production branch redeploys; PRs get preview URLs.
-
-### Option B — Direct upload with Wrangler
-
-```bash
-npm install
-npm run build
-npx wrangler pages deploy          # reads name + output dir from wrangler.toml
-```
-
-First run prompts a browser login and offers to create the `ahnaf-portfolio` project.
-
-### Custom domain
-
-Pages project → **Custom domains** → **Set up a domain** → enter your domain. If the domain's DNS is
-already on Cloudflare it's one click; otherwise follow the CNAME instructions. Then:
-
-- set the real domain in `static/robots.txt`, `static/sitemap.xml`, and the `canonical` / `og:url`
-  tags in `static/index.html` (search for `REPLACE-WITH-DOMAIN`).
-
 ## Deploy to GitHub Pages
 
 `.github/workflows/deploy.yml` runs `npm ci && npm run build` and publishes `dist/` on every push to
@@ -108,12 +74,12 @@ already on Cloudflare it's one click; otherwise follow the CNAME instructions. T
    *Deploy to GitHub Pages* → *Run workflow*). When it finishes, the URL shows in the Actions run
    and under Settings → Pages.
 4. Custom domain (optional): Settings → Pages → Custom domain. Then set the real domain in
-   `robots.txt`, `sitemap.xml`, and the `canonical` / `og:url` tags (search `REPLACE-WITH-DOMAIN`).
+   `static/robots.txt`, `static/sitemap.xml`, and the `canonical` / `og:url` tags in
+   `static/index.html` (search for `REPLACE-WITH-DOMAIN`).
 
-**GitHub Pages caveats:** `_headers` (the CSP and security headers) and `_redirects` (the `/resume`
-shortcut) are Cloudflare-Pages features — GitHub Pages ignores them. The site itself works fully; it
-just serves with GitHub's default headers. If you want the CSP, deploy on Cloudflare Pages (above) or
-add a `<meta http-equiv="Content-Security-Policy">` tag (weaker, no `frame-ancestors`).
+GitHub Pages can't set custom response headers, so there's no CSP / security-header layer. If you
+need one, put the site behind a proxy that can (e.g. Cloudflare) or add a
+`<meta http-equiv="Content-Security-Policy">` tag (weaker — no `frame-ancestors`).
 
 ## Before you ship — content TODOs
 
@@ -181,11 +147,10 @@ Everything below is either a guess I made from your resume or a placeholder. Sea
     roles" dot pulses; sections/cards fade in on scroll (IntersectionObserver + 2.2 s safety net +
     no-JS fallback); scroll-progress bar; blinking monogram cursor; link underlines wipe in; chips
     and cards lift on hover; card top-edge hairline sweeps in; theme toggle spins.
-17. **New third-party request:** Google Fonts (`fonts.googleapis.com` + `fonts.gstatic.com`), added
-    to the CSP in `_headers` and `preconnect`ed in `<head>`. If you'd rather keep zero third-party
-    requests, self-host with `@fontsource/space-grotesk` + `@fontsource/jetbrains-mono` (copy the
-    `woff2` into `static/fonts/`, `@font-face` them in `src/tailwind.css`, drop the `<link>` and the
-    two font hosts from the CSP).
+17. **One third-party request:** Google Fonts (`fonts.googleapis.com` + `fonts.gstatic.com`),
+    `preconnect`ed in `<head>`. To keep zero third-party requests, self-host with
+    `@fontsource/space-grotesk` + `@fontsource/jetbrains-mono` (copy the `woff2` into
+    `static/fonts/`, `@font-face` them in `src/tailwind.css`, drop the `<link>`).
 18. **Hero copy trimmed** — per your request, the "At WellDev I help build and operate… / I also
     compete… Codeforces Specialist, CodeChef 5★" sentence is gone. That info still appears in the
     stats band, Experience, and Competitive programming.
@@ -209,20 +174,16 @@ Everything below is either a guess I made from your resume or a placeholder. Sea
   flip the logic in the inline `<script>` in `<head>`.
 - **Fonts:** loaded from Google Fonts in `<head>`. To self-host instead, see assumption 17 above.
 - **Technology icons:** `BRANDS` map in `scripts/build.mjs` + `<use href="#b-...">` in `index.html`.
-- **Tighten CSP:** replace `script-src 'unsafe-inline'` in `_headers` with `'sha256-...'` hashes of
-  the two inline scripts once the copy is final. `style-src` already scopes inline styles out (only
-  `fonts.googleapis.com` is allowed alongside `'self'`).
 
 ## File tree
 
 ```
 .
 ├── .gitignore
-├── .node-version              # Node 20 (Cloudflare Pages + the Actions workflow)
+├── .node-version              # Node 20 — the CI workflow reads it
 ├── README.md
 ├── package.json
 ├── tailwind.config.js
-├── wrangler.toml              # Cloudflare Pages project name + output dir
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml         # GitHub Pages: build + publish dist/ on push to main
@@ -234,8 +195,6 @@ Everything below is either a guess I made from your resume or a placeholder. Sea
     ├── index.html
     ├── favicon.svg
     ├── .nojekyll              # tell GitHub Pages not to run Jekyll on the output
-    ├── _headers               # Cloudflare only — security headers + cache-control
-    ├── _redirects             # Cloudflare only — /resume -> /resume.pdf
     ├── robots.txt
     ├── sitemap.xml
     └── resume.pdf             # opened in a new tab by the hero "Résumé" button
