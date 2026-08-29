@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* Keep the JS config (content globs, accent colours, fonts, keyframes). */
+@config '../tailwind.config.js';
+
+/* v4 no longer reads `darkMode` from the JS config — declare the class variant here. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   html {
@@ -8,6 +12,11 @@
   }
   body {
     text-rendering: optimizeLegibility;
+  }
+  /* v4 preflight drops the pointer cursor on buttons; restore it. */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
   }
 }
 

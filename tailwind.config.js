@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+// Tailwind v4 reads this file via `@config` in src/tailwind.css (content globs, colours,
+// fonts, keyframes). `darkMode` is NOT read from here in v4 — the `.dark` class variant is
+// declared with `@custom-variant dark` in src/tailwind.css. Left here for reference only.
 export default {
   content: ['./static/**/*.html'],
   darkMode: 'class',
