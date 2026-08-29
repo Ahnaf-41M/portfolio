@@ -179,24 +179,26 @@
           </p>
         </div>
 
-        <div class="mt-7 flex animate-fade-up flex-wrap gap-x-3 gap-y-3 font-mono text-sm [animation-delay:180ms]">
+        <div class="mt-7 grid animate-fade-up grid-cols-2 gap-2.5 font-mono text-xs [animation-delay:180ms] sm:flex sm:flex-wrap sm:gap-x-2.5 sm:gap-y-2.5">
           <a
-            class="group inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 font-medium text-white transition hover:-translate-y-0.5 hover:bg-accent/90 dark:bg-accent-bright dark:text-zinc-950 dark:hover:bg-accent-bright/90"
+            class="group relative inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-3 py-1.5 font-medium text-white transition hover:-translate-y-0.5 hover:bg-accent/90 dark:bg-accent-bright dark:text-zinc-950 dark:hover:bg-accent-bright/90 sm:justify-start"
             href="mailto:md.ahnaf.muttaqi@gmail.com"
+            target="_blank"
+            rel="noopener"
           >
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-mail" /></svg>
+            <svg class="h-3.5 w-3.5 max-sm:absolute max-sm:left-3 max-sm:top-1/2 max-sm:-translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-mail" /></svg>
             Email me
           </a>
-          <a class="inline-flex items-center gap-2 rounded-lg border border-zinc-300 px-4 py-2 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent dark:border-zinc-700 dark:hover:border-accent-bright dark:hover:text-accent-bright" href="https://github.com/Ahnaf-41M" rel="me">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#b-github" /></svg>
+          <a class="relative inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent dark:border-zinc-700 dark:hover:border-accent-bright dark:hover:text-accent-bright sm:justify-start" href="https://github.com/Ahnaf-41M" rel="me noopener" target="_blank">
+            <svg class="h-3.5 w-3.5 max-sm:absolute max-sm:left-3 max-sm:top-1/2 max-sm:-translate-y-1/2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#b-github" /></svg>
             GitHub
           </a>
-          <a class="inline-flex items-center gap-2 rounded-lg border border-zinc-300 px-4 py-2 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent dark:border-zinc-700 dark:hover:border-accent-bright dark:hover:text-accent-bright" href="https://linkedin.com/in/ahnaf-41m/" rel="me">
-            <svg class="h-4 w-4" style="color:#0A66C2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#b-linkedin" /></svg>
+          <a class="relative inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent dark:border-zinc-700 dark:hover:border-accent-bright dark:hover:text-accent-bright sm:justify-start" href="https://linkedin.com/in/ahnaf-41m/" rel="me noopener" target="_blank">
+            <svg class="h-3.5 w-3.5 max-sm:absolute max-sm:left-3 max-sm:top-1/2 max-sm:-translate-y-1/2" style="color:#0A66C2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#b-linkedin" /></svg>
             LinkedIn
           </a>
-          <a class="inline-flex items-center gap-2 rounded-lg border border-zinc-300 px-4 py-2 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent dark:border-zinc-700 dark:hover:border-accent-bright dark:hover:text-accent-bright" href="resume.pdf" target="_blank" rel="noopener">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-file" /></svg>
+          <a class="relative inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-300 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-accent hover:text-accent dark:border-zinc-700 dark:hover:border-accent-bright dark:hover:text-accent-bright sm:justify-start" href="resume.pdf" target="_blank" rel="noopener">
+            <svg class="h-3.5 w-3.5 max-sm:absolute max-sm:left-3 max-sm:top-1/2 max-sm:-translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-file" /></svg>
             Résumé
           </a>
         </div>
@@ -283,7 +285,7 @@
           <span class="h-px flex-1 bg-gradient-to-r from-zinc-300 to-transparent dark:from-zinc-700"></span>
         </div>
         <h2 id="work-heading" class="h2 reveal">Things I've built and run in production</h2>
-        <!-- TODO(ahnaf): these four are WellDev work — confirm you can describe the platform publicly at this level of detail. If not, generalize the wording in each card. -->
+        <!-- TODO(ahnaf): these five are WellDev work — confirm you can describe the platform publicly at this level of detail. If not, generalize the wording in each card. -->
 
         <div class="mt-6 space-y-4" data-stagger>
           <!-- Card 1 -->
@@ -301,8 +303,12 @@
               <li>Stimulus controllers drive badge counts, read/seen state and Gmail-style toasts on the client.</li>
               <li>Collapsed the "pending" lookup so the page renders in one pass instead of per-item work.</li>
             </ul>
-            <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-500">
-              <li>Rails</li><li>Hotwire</li><li>Turbo Streams</li><li>Action Cable</li><li>PostgreSQL</li>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#D30001" aria-hidden="true"><use href="#b-rails" /></svg>Rails</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#FFE801" aria-hidden="true"><use href="#b-hotwire" /></svg>Hotwire</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>Turbo Streams</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-server" /></svg>Action Cable</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#4169E1" aria-hidden="true"><use href="#b-postgresql" /></svg>PostgreSQL</li>
             </ul>
             <!-- TODO(ahnaf): Is the 10x render time or query time? Name the bottleneck removed (N+1? missing index? rendering N partials?). One before/after number ("2.1s -> 190ms") makes this land. -->
           </article></div>
@@ -322,8 +328,11 @@
               <li>Built Grafana dashboards for day-to-day monitoring and incident triage.</li>
               <li>Routed alerts into Slack so on-call-style notifications reach the team in real time.</li>
             </ul>
-            <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-500">
-              <li>Prometheus</li><li>Grafana</li><li>Slack</li><li>Rails</li>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#E6522C" aria-hidden="true"><use href="#b-prometheus" /></svg>Prometheus</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#F46800" aria-hidden="true"><use href="#b-grafana" /></svg>Grafana</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-bell" /></svg>Slack</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#D30001" aria-hidden="true"><use href="#b-rails" /></svg>Rails</li>
             </ul>
             <!-- TODO(ahnaf): which exporter/gem (yabeda-prometheus? prometheus-client?). Alertmanager in the path? Name 2-3 real alert rules. Any drop in incident count / MTTR? -->
           </article></div>
@@ -343,8 +352,11 @@
               <li>Containerized the app and moved deploys to a container workflow driven by CI.</li>
               <li>Maintained the CI/CD pipeline: automated tests gate every deploy.</li>
             </ul>
-            <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-500">
-              <li>Ansible</li><li>Docker</li><li>CI/CD</li><li>Linux</li>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#EE0000" aria-hidden="true"><use href="#b-ansible" /></svg>Ansible</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#2496ED" aria-hidden="true"><use href="#b-docker" /></svg>Docker</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-cicd" /></svg>CI/CD</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-terminal" /></svg>Linux</li>
             </ul>
             <!-- TODO(ahnaf): which CI (GitHub Actions? GitLab CI?). Deploy target — VPS, AWS, GCP, Hetzner, Kamal? Zero-downtime / rollback? How many environments? -->
           </article></div>
@@ -352,6 +364,29 @@
           <!-- Card 4 -->
           <div class="reveal"><article class="card group">
             <span class="pointer-events-none absolute right-4 top-3 font-mono text-xs text-zinc-300 dark:text-zinc-700">04</span>
+            <div class="flex items-start gap-4">
+              <span class="icon-tile"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-file" /></svg></span>
+              <div class="min-w-0 pr-6">
+                <h3 class="font-display font-semibold text-zinc-900 dark:text-white">Moving file attachments from Paperclip to Active Storage</h3>
+                <p class="mt-1.5 text-sm leading-relaxed">Paperclip has been retired for years. Moved every attachment onto Rails' built-in Active Storage without breaking existing files or links.</p>
+              </div>
+            </div>
+            <ul class="prose-list">
+              <li>Mapped each Paperclip attachment to its Active Storage equivalent and migrated the stored files and metadata across.</li>
+              <li>Kept existing file URLs and downloads working through the cutover — nothing broke for users mid-migration.</li>
+              <li>Dropped the Paperclip gem and its per-model attachment columns once every model was moved.</li>
+            </ul>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#D30001" aria-hidden="true"><use href="#b-rails" /></svg>Rails</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-file" /></svg>Active Storage</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code" /></svg>Refactoring</li>
+            </ul>
+            <!-- TODO(ahnaf): storage backend (S3? local disk?). One-off rake task or a gem (activestorage-paperclip-migration)? Rough attachment count. Any downtime window? -->
+          </article></div>
+
+          <!-- Card 5 -->
+          <div class="reveal"><article class="card group">
+            <span class="pointer-events-none absolute right-4 top-3 font-mono text-xs text-zinc-300 dark:text-zinc-700">05</span>
             <div class="flex items-start gap-4">
               <span class="icon-tile"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code" /></svg></span>
               <div class="min-w-0 pr-6">
@@ -364,8 +399,10 @@
               <li>Worked through the whitespace-sensitivity and inline-Ruby edge cases HAML hides, checking rendered output page by page.</li>
               <li>Result: lower onboarding cost for new contributors, one fewer DSL to learn.</li>
             </ul>
-            <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-500">
-              <li>Rails</li><li>ERB</li><li>Refactoring</li>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#D30001" aria-hidden="true"><use href="#b-rails" /></svg>Rails</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-file" /></svg>ERB</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code" /></svg>Refactoring</li>
             </ul>
             <!-- TODO(ahnaf): rough template count or LOC. Did you script it (haml2erb, then erb-lint)? Any bug caught or introduced? What drove the decision? -->
           </article></div>
@@ -407,8 +444,12 @@
               <li>Background work on Sidekiq (with sidekiq-cron); video lessons processed with <code class="font-mono text-xs">ffmpeg</code>; watch-progress tracked per lesson.</li>
               <li>Hotwire front end, Kaminari pagination, RSpec + FactoryBot, Bullet for N+1 detection, English/Bengali i18n.</li>
             </ul>
-            <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-500">
-              <li>Rails 7.2</li><li>PostgreSQL</li><li>Sidekiq</li><li>Hotwire</li><li>CanCanCan</li>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#D30001" aria-hidden="true"><use href="#b-rails" /></svg>Rails 7.2</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#4169E1" aria-hidden="true"><use href="#b-postgresql" /></svg>PostgreSQL</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>Sidekiq</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#FFE801" aria-hidden="true"><use href="#b-hotwire" /></svg>Hotwire</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code" /></svg>CanCanCan</li>
             </ul>
             <!-- TODO(ahnaf): deployed anywhere (link)? Repo portfolio-ready (README + screenshots, tests green)? -->
           </article></div>
@@ -433,8 +474,11 @@
               <li>Admin CRUD for quizzes and questions; scoring and a top-scores leaderboard for users.</li>
               <li>Server-rendered views with Thymeleaf; data in MySQL through Spring Data JPA.</li>
             </ul>
-            <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-500">
-              <li>Java</li><li>Spring Boot</li><li>Thymeleaf</li><li>MySQL</li>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#E76F00" aria-hidden="true"><use href="#b-java" /></svg>Java</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#6DB33F" aria-hidden="true"><use href="#b-springboot" /></svg>Spring Boot</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-file" /></svg>Thymeleaf</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#4479A1" aria-hidden="true"><use href="#b-mysql" /></svg>MySQL</li>
             </ul>
             <!-- TODO(ahnaf): verify persistence (Spring Data JPA? plain JDBC?) and auth (Spring Security?). Anything else worth a bullet — timed quizzes, categories, roles? -->
           </article></div>
@@ -459,8 +503,11 @@
               <li>Route/time search with per-bus seat-availability display and seat booking.</li>
               <li>Java Swing desktop UI over a MySQL schema for routes, trips and bookings.</li>
             </ul>
-            <ul class="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-zinc-500">
-              <li>Java</li><li>Swing</li><li>MySQL</li><li>JDBC</li>
+            <ul class="mt-4 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-xs text-zinc-500">
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#E76F00" aria-hidden="true"><use href="#b-java" /></svg>Java</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-code" /></svg>Swing</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" style="color:#4479A1" aria-hidden="true"><use href="#b-mysql" /></svg>MySQL</li>
+              <li class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-server" /></svg>JDBC</li>
             </ul>
             <!-- TODO(ahnaf): confirm DB access is plain JDBC. Is there an admin side (manage routes/buses)? Any payment/seat-lock handling? -->
           </article></div>
@@ -515,11 +562,11 @@
               <div class="min-w-0">
                 <div class="flex flex-wrap items-baseline justify-between gap-x-4">
                   <h3 class="font-display font-semibold text-zinc-900 dark:text-white">
-                    B.Sc. (Engg.), Computer Science &amp; Telecommunication Engineering
+                    Noakhali Science and Technology University
                   </h3>
                   <span class="font-mono text-xs text-accent dark:text-accent-bright">2019 – 2024</span>
                 </div>
-                <p class="mt-1.5 text-sm text-zinc-500">Noakhali Science and Technology University</p>
+                <p class="mt-1.5 text-sm text-zinc-500">B.Sc. (Engg.), Computer Science &amp; Telecommunication Engineering</p>
               </div>
             </div>
           </article>
@@ -662,7 +709,7 @@
         <p class="mt-2 reveal text-sm leading-relaxed">Open to backend and cloud / platform engineering roles. Email is the fastest way to reach me.</p>
         <ul class="mt-6 reveal grid grid-cols-1 gap-3 font-mono text-sm sm:grid-cols-2">
           <li>
-            <a class="group flex items-center gap-3 rounded-lg border border-zinc-200 p-3 transition hover:-translate-y-0.5 hover:border-accent dark:border-zinc-800 dark:hover:border-accent-bright" href="mailto:md.ahnaf.muttaqi@gmail.com">
+            <a class="group flex items-center gap-3 rounded-lg border border-zinc-200 p-3 transition hover:-translate-y-0.5 hover:border-accent dark:border-zinc-800 dark:hover:border-accent-bright" href="mailto:md.ahnaf.muttaqi@gmail.com" target="_blank" rel="noopener">
               <svg class="h-4 w-4 shrink-0" style="color:#EA4335" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-mail" /></svg>
               md.ahnaf.muttaqi@gmail.com
             </a>
@@ -680,7 +727,7 @@
             </a>
           </li>
           <li>
-            <a class="group flex items-center gap-3 rounded-lg border border-zinc-200 p-3 transition hover:-translate-y-0.5 hover:border-accent dark:border-zinc-800 dark:hover:border-accent-bright" href="tel:+8801980318196">
+            <a class="group flex items-center gap-3 rounded-lg border border-zinc-200 p-3 transition hover:-translate-y-0.5 hover:border-accent dark:border-zinc-800 dark:hover:border-accent-bright" href="tel:+8801980318196" target="_blank" rel="noopener">
               <svg class="h-4 w-4 shrink-0 text-zinc-400 group-hover:text-accent dark:group-hover:text-accent-bright" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-phone" /></svg>
               +880 1980-318196
             </a>
